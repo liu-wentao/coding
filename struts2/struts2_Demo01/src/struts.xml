@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+
+	<!--常量修改-->
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+	
+	 <package name="hellodemo" extends="struts-default" namespace="/">
+		<!--name: 访问名称-->
+		<action name="hello" class="cn.itcast.action.HelloAction">   <!--  对应类-->
+			<!--配置方法的返回值到页面-->
+			<result name="ok">/hello.jsp</result>    <!--  对应方法   -->
+		</action>
+	</package>
+	
+	<!-- 引入hello.xml文件 -->
+	<!-- <include file="cn/itcast/action/hello.xml"></include> -->
+
+	<!-- 配置action的方法访问 -->
+	<!-- <package name="methoddemo" extends="struts-default" namespace="/">
+		有method属性：写要执行的action里面的方法的名称  
+		<action name="addAction" class="cn.itcast.method.BookAction" method="add"></action>
+		执行update方法
+		<action name="updateAction" class="cn.itcast.method.BookAction" method="update"></action>
+	</package> -->
+	<!-- 通配符方式实现 -->
+	<!--<package name="methoddemo" extends="struts-default" namespace="/">-->
+		<!-- 
+			name属性值里面写符号 * 
+			(1)执行action里面的add方法，访问 book_add，使用book_*可以匹配到，*相当于变成 add
+			
+			(2)执行action里面的update方法，访问book_update，使用book_*可以匹配到，*相当于变成 update
+			上面两个路径使用 book_* 可以匹配到
+			method属性写*值
+		 -->
+		<!--<action name="book_*" class="cn.itcast.method.BookAction" method="{1}">-->
+		<!--</action>-->
+	<!--</package>-->
+</struts>
+
+
+
